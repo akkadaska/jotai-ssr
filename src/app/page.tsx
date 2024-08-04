@@ -5,6 +5,7 @@ import { HydrationBoundary } from '@/jotai-ssr/HydrationBoundary';
 import { HydrationText, textAtom } from '@/components/HydrationText';
 import { FetchAndHydration } from '@/components/FetchAndHydration';
 import { SuspenseBoundary } from '@/jotai-ssr/SuspenseBoundary';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -13,6 +14,14 @@ export default function Home() {
         <h1 className="text-xl font-bold text-center text-blue-600">
           page.tsx
         </h1>
+        <Link href="/sync-layout-store">
+          <p
+            className="text-blue-600 underline cursor-pointer"
+            style={{ textAlign: 'center' }}
+          >
+            Goto <code>/sync-layout/store</code>
+          </p>
+        </Link>
         <Counter />
         <HydrationText />
         <HydrationBoundary hydrateAtoms={[[textAtom, 'Hydration!']]}>
